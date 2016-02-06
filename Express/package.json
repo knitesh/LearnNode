@@ -1,0 +1,21 @@
+{
+  "name": "expressdemo",
+  "version": "1.0.0",
+  "description": "Contains Code Example for Using Express Demo",
+  "main": "Express.js",
+  "dependencies": {
+    "express": "^4.13.4",
+    "jade": "^1.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "nodejs",
+    "jade"
+  ],
+  "author": "Kumar Nitesh",
+  "license": "MIT"
+}
