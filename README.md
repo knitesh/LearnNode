@@ -18,3 +18,72 @@ To start with we will go through Hello World example first. Go to the HelloWorld
 
 #Tcp Connection
 #Express
+
+#Starter Grunt File
+```
+module.exports = function(grunt) {
+  // Do grunt-related things in here
+grunt.initConfig({
+	watch: {
+	  scripts: {
+	    files: ['src/*.js'],
+	    tasks: ['concat']
+	  },
+	  css:{
+	  	files: ['dist/css/*.css'],
+	  	tasks: ['concat']
+	  }
+},
+  concat: {
+    js: {
+      src: ['src/*.js'],
+      dest: 'build/built.js',
+    },
+    css: {
+      src: ['dist/css/*.css'],
+      dest: 'build/built.css',
+    }
+  },
+  compass: {                  // Task
+    dist: {                   // Target
+      options: {              // Target options
+        sassDir: 'scss',
+        cssDir: 'dist/css',
+        environment: 'production',
+        watch :'true'
+      }
+    }
+},
+cssmin: {
+  target: {
+    files: {
+      'dist/output.min.css': ['build/built.css']
+    }
+  }
+},
+uglify: {
+    my_target: {
+      options: {
+        sourceMap: true,
+        sourceMapName: 'dist/sourcemap.map'
+      },
+      files: {
+        'dist/output.min.js': ['build/built.js']
+      }
+    }
+  }
+});
+ 
+grunt.loadNpmTasks('grunt-contrib-watch');
+
+  grunt.loadNpmTasks('grunt-contrib-concat');
+
+  grunt.loadNpmTasks('grunt-contrib-compass');
+
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+
+  grunt.registerTask('default', ['compass']);
+};
+```
